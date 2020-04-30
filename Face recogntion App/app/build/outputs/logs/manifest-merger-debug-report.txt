@@ -1,0 +1,199 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+MERGED from [com.google.android.material:material:1.2.0-alpha05] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\3bda3751cbda09e14bcfd88f255fa476\material-1.2.0-alpha05\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\cb99e77638f7aea73fdfbb0798f74a2b\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\019045dec5e38f76b552841946c88194\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\844e6d8d110901814b6cf2c0e58db777\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\405a67604df822d17680e694d669e23c\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\f571276bff67684a540f564f5677638a\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\962661a2d0e39df4c213a94473258f8a\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\1e19b627048259720a9293cff54eca4b\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\fcdaabe3acafed622c2a36d692b38303\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\e0e654e7f0e4b26ce0ba0fbab7b3ee8b\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\6e4c8d1772fc6d6ee2099c68eedf1c03\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\5c010204b349cb67993103f3db4846c3\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\5772398f154fbb421660eae656082fcd\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\caea093eaa3f4ab10bb21ae1108e4fce\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\4cd09af75b4e9c80a52041a8e1774876\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\d41b143c555fb6013f800f08ed885f01\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\457b24bb365487f19b919b9304bfe494\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7faca25a56e7b36aa8d8c2bb49b77a5e\core-1.2.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\9f787e057b2287836884ce91071f4cb1\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\25d8934de3004385e90543e0b354fff1\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\31fe7ec3156d932311e1d63e5afe3838\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\a00281b5d84046061d87ced0c5ed5d6f\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7526d421bacfef31921c7043f85ffde8\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\1653319b2d58e30ed9313b0c2df5947e\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\13f6a8a8ac08da7eb6eca2e6990d51f4\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\be7a7dfb68705840901dbd39fdfd186a\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\43a209a1574b998fc4c3256029348641\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\cff62913899b80d7e8d3945e2325a2f8\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+	package
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:3:5-39
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:1-40:12
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.camera
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:5:5-73
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:5:19-57
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:6:22-62
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:7:5-83
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:8:5-96
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:8:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:9:5-97
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:9:22-78
+application
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:11:5-38:19
+MERGED from [com.google.android.material:material:1.2.0-alpha05] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\3bda3751cbda09e14bcfd88f255fa476\material-1.2.0-alpha05\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.2.0-alpha05] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\3bda3751cbda09e14bcfd88f255fa476\material-1.2.0-alpha05\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\019045dec5e38f76b552841946c88194\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\019045dec5e38f76b552841946c88194\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7faca25a56e7b36aa8d8c2bb49b77a5e\core-1.2.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7faca25a56e7b36aa8d8c2bb49b77a5e\core-1.2.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\25d8934de3004385e90543e0b354fff1\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\25d8934de3004385e90543e0b354fff1\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7faca25a56e7b36aa8d8c2bb49b77a5e\core-1.2.0\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:18:9-35
+	android:label
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:14:9-41
+	android:roundIcon
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:17:9-54
+	android:icon
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:13:9-38
+	android:allowBackup
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:19:9-40
+	android:networkSecurityConfig
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:16:9-69
+	android:usesCleartextTraffic
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:15:9-44
+activity#com.example.faceverifier.MainActivity
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:20:9-26:20
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:20:19-46
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:21:13-25:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:22:17-69
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:22:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:24:17-77
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:24:27-74
+provider#androidx.core.content.FileProvider
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:28:9-36:20
+	android:grantUriPermissions
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:32:13-47
+	android:authorities
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:30:13-59
+	android:exported
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:29:13-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:33:13-35:64
+	android:resource
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:35:17-51
+	android:name
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml:34:17-67
+uses-sdk
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.2.0-alpha05] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\3bda3751cbda09e14bcfd88f255fa476\material-1.2.0-alpha05\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.2.0-alpha05] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\3bda3751cbda09e14bcfd88f255fa476\material-1.2.0-alpha05\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\cb99e77638f7aea73fdfbb0798f74a2b\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\cb99e77638f7aea73fdfbb0798f74a2b\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\019045dec5e38f76b552841946c88194\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\019045dec5e38f76b552841946c88194\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\844e6d8d110901814b6cf2c0e58db777\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\844e6d8d110901814b6cf2c0e58db777\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\405a67604df822d17680e694d669e23c\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\405a67604df822d17680e694d669e23c\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\f571276bff67684a540f564f5677638a\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\f571276bff67684a540f564f5677638a\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\962661a2d0e39df4c213a94473258f8a\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\962661a2d0e39df4c213a94473258f8a\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\1e19b627048259720a9293cff54eca4b\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\1e19b627048259720a9293cff54eca4b\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\fcdaabe3acafed622c2a36d692b38303\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\fcdaabe3acafed622c2a36d692b38303\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\e0e654e7f0e4b26ce0ba0fbab7b3ee8b\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\e0e654e7f0e4b26ce0ba0fbab7b3ee8b\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\6e4c8d1772fc6d6ee2099c68eedf1c03\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\6e4c8d1772fc6d6ee2099c68eedf1c03\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\5c010204b349cb67993103f3db4846c3\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\5c010204b349cb67993103f3db4846c3\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\5772398f154fbb421660eae656082fcd\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\5772398f154fbb421660eae656082fcd\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\caea093eaa3f4ab10bb21ae1108e4fce\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\caea093eaa3f4ab10bb21ae1108e4fce\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\4cd09af75b4e9c80a52041a8e1774876\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\4cd09af75b4e9c80a52041a8e1774876\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\d41b143c555fb6013f800f08ed885f01\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\d41b143c555fb6013f800f08ed885f01\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\457b24bb365487f19b919b9304bfe494\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\457b24bb365487f19b919b9304bfe494\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7faca25a56e7b36aa8d8c2bb49b77a5e\core-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.2.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7faca25a56e7b36aa8d8c2bb49b77a5e\core-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\9f787e057b2287836884ce91071f4cb1\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\9f787e057b2287836884ce91071f4cb1\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\25d8934de3004385e90543e0b354fff1\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\25d8934de3004385e90543e0b354fff1\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\31fe7ec3156d932311e1d63e5afe3838\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\31fe7ec3156d932311e1d63e5afe3838\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\a00281b5d84046061d87ced0c5ed5d6f\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\a00281b5d84046061d87ced0c5ed5d6f\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7526d421bacfef31921c7043f85ffde8\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\7526d421bacfef31921c7043f85ffde8\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\1653319b2d58e30ed9313b0c2df5947e\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\1653319b2d58e30ed9313b0c2df5947e\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\13f6a8a8ac08da7eb6eca2e6990d51f4\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\13f6a8a8ac08da7eb6eca2e6990d51f4\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\be7a7dfb68705840901dbd39fdfd186a\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\be7a7dfb68705840901dbd39fdfd186a\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\43a209a1574b998fc4c3256029348641\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\43a209a1574b998fc4c3256029348641\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\cff62913899b80d7e8d3945e2325a2f8\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\anuj4\.gradle\caches\transforms-2\files-2.1\cff62913899b80d7e8d3945e2325a2f8\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\anuj4\OneDrive\Desktop\Face Recognition\VGG Face\Face recogntion App\app\src\main\AndroidManifest.xml
