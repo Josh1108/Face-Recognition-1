@@ -16,3 +16,7 @@ class User(UserMixin,db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+class Table(UserMixin,db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    databasename = db.Column(db.String(64), index=True, unique=True)
