@@ -3,7 +3,7 @@ from flask_admin.contrib.sqla import ModelView, view
 from flask_admin import AdminIndexView,expose,BaseView
 from flask_login import current_user
 from flask import redirect, url_for, request,render_template
-from .models import Table
+from .models import examinee
 class UsersTable(ModelView):
 
     def is_accessible(self):
@@ -47,7 +47,7 @@ class SeeTables(BaseView):
     @expose('/',methods=["POST","GET"])
     def index(self):
 
-        query = Table.query.with_entities(Table.databasename).distinct()
+        query = examinee.query.with_entities(examinee.databasename).distinct()
         # print(query.all())
         tables = [row.databasename for row in query.all()]
         # print(tables)
@@ -55,7 +55,7 @@ class SeeTables(BaseView):
             req = request.form.get('database-select')
             print(req)
             # return redirect('/admin/table',database=req)
-            return redirect(url_for('table.index_view', req=req))
+            return redirect(url_for('examinee.index_view', req=req))
         return self.render('admin/tables.html',tables=tables)
 
             
