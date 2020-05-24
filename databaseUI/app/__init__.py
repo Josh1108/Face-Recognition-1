@@ -20,5 +20,5 @@ from app.admin import UsersTable, Tables,MyAdminIndexView,SeeTables
 
 admin = Admin(app, name='facerecog', template_mode='bootstrap3',index_view=MyAdminIndexView())
 admin.add_view(UsersTable(models.User, db.session))
-admin.add_view(Tables(models.Table,db.session,endpoint='testadmin'))
+admin.add_view(Tables(models.Table,db.session))
 admin.add_view(SeeTables('selectdb', url='/selectdb'))
