@@ -42,4 +42,5 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+
 #addlogin_required for protected pages, add decorater below app.route
