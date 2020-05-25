@@ -1,38 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-	<div class="row">
-        <h1 style="text-align: center;">Sign In</h1>
-        <div style="width: 30%;margin: 25px auto;">
-		    <form action="" method="post" novalidate>
-		        {{ form.hidden_tag() }}
-		        <div class="form-group"> 
-			        <p>
-			            {{ form.username.label }}<br>
-			            {{ form.username(size=32) }} <br>
-			            {% for error in form.username.errors %}
-			            <span style="color: red;">[{{error}}]</span>
-			        {% endfor %}
-			        </p>
-		    	</div>
-		        <div class="form-group"> 
-			        <p>
-			            {{ form.password.label }}<br>
-			            {{ form.password(size=32) }}
-			            {% for error in form.password.errors %}
-			            <span style="color: red;">[{{ error }}]</span>
-			            {% endfor %}
-			        </p>
-			    </div>
-		        <div class="form-group"> 
-		        	<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-		    	</div>
-		        <div class="form-group"> 
-		        	<p>{{ form.submit() }}</p>
-		        </div>
-		    </form>
+<div class="jumbotron" style="padding-top: 65px;">
+	<div class="container">
+		<div class="row" style="display: flex;
+								flex-direction: column;
+								justify-content: center;
+								text-align: center">
+			<h1 style="text-align: center;">Sign In</h1>
 		</div>
-    </div>
+		<div class="row">
+			<div style="width: 30%;margin: 25px auto;">
+				<form action="" method="post" novalidate>
+					{{ form.hidden_tag() }}
+					<div class="form-group"> 
+						<p>
+							{{ form.username.label(class = 'form-group')}}{{form.username(class = 'form-control')}}<br>
+							{% for error in form.username.errors %}
+							<span style="color: red;">[{{error}}]</span>
+							{% endfor %}
+						</p>
+					</div>
+					<div class="form-group"> 
+						<p>
+							{{ form.password.label(class = 'form-group')}}{{form.password(class = 'form-control')}}<br>
+							{% for error in form.password.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+							{% endfor %}
+						</p>
+					</div>
+					<div class="form-group"> 
+						<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+					</div>
+					<div class="form-group"> 
+						<p>{{ form.submit(class = 'btn btn-primary') }}</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
