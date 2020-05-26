@@ -1,7 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
+    <div style="padding-top: 65px; margin-left: 20px; margin-right: 20px;">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    {% if current_user.username %}
+        <h1>Hi, {{ current_user.username }}!</h1>
+    {% else %}
+        <h1>Hi, User!</h1>
+        <h3>Please login to continue.</h3>
+    {% endif %}
+
+    <!-- Ye niche ka text dalna hai -->
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
+    
 {% endblock %}

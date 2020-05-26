@@ -35,11 +35,13 @@ def login():
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page=url_for('index')
+        flash('Successfully logged in')
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
 @app.route('/logout')
 def logout():
     logout_user()
+    flash('Successfully logged out')
     return redirect(url_for('index'))
 @app.route('/api/databases', methods=["GET"])
 def get_databases():
