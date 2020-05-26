@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-    <div style="padding-top: 65px; margin-left: 20px; margin-right: 20px;">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-success alert-dismissible fade show">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        {% endwith %}
-    </div>
+<div style="padding-top: 70px;">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+		<div style="width: 80%;
+		margin-left: auto;
+		margin-right: auto;" class="alert alert-success alert-dismissible fade show">{{ message }}</div>
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
+</div>
+<div class="container">
     {% if current_user.username %}
         <h1>Hi, {{ current_user.username }}!</h1>
     {% else %}
@@ -20,5 +23,5 @@
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
-    
+</div>
 {% endblock %}

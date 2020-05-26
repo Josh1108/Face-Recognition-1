@@ -1,53 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="padding-top: 65px; margin-left: 20px; margin-right: 20px;">
+<div style="padding-top: 70px;">
 	{% with messages = get_flashed_messages() %}
 	{% if messages %}
 		{% for message in messages %}
-		<div class="alert alert-warning alert-dismissible fade show">{{ message }}</div>
+		<div style="width: 80%;
+		margin-left: auto;
+		margin-right: auto;" class="alert alert-warning alert-dismissible fade show">{{ message }}</div>
 		{% endfor %}
 	{% endif %}
 	{% endwith %}
 </div>
-<div class="jumbotron" style="padding-top: 65px;
-							width: 30%;
-							margin-left: auto;
-							margin-right: auto;">
 	<div class="container">
-		<div class="row" style="display: flex;
-								flex-direction: column;
-								justify-content: center;
-								text-align: center">
-			<h1 style="text-align: center;">Sign In</h1>
-		</div>
-		<div class="row">
-			<div style="width: 70%;margin: 25px auto;">
-				<form action="" method="post" novalidate>
-					{{ form.hidden_tag() }}
-					<div class="form-group"> 
-						<p>
-							{{ form.username.label(class = 'form-group')}}{{form.username(class = 'form-control')}}<br>
-							{% for error in form.username.errors %}
-							<span style="color: red;">[{{error}}]</span>
-							{% endfor %}
-						</p>
-					</div>
-					<div class="form-group"> 
-						<p>
-							{{ form.password.label(class = 'form-group')}}{{form.password(class = 'form-control')}}<br>
-							{% for error in form.password.errors %}
-							<span style="color: red;">[{{ error }}]</span>
-							{% endfor %}
-						</p>
-					</div>
-					<div class="form-group"> 
-						<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-					</div>
-					<div class="form-group"> 
-						<p>{{ form.submit(class = 'btn btn-primary') }}</p>
-					</div>
-				</form>
+	<div class="jumbotron" style="padding-top: 70px;
+								width: 45%;
+								margin-left: auto;
+								margin-right: auto;">
+		<div class="container">
+			<div class="row" style="display: flex;
+									flex-direction: column;
+									justify-content: center;
+									text-align: center">
+				<h1 style="text-align: center;">Sign In</h1>
+			</div>
+			<div class="row">
+				<div style="width: 70%;margin: 25px auto;">
+					<form action="" method="post" novalidate>
+						{{ form.hidden_tag() }}
+						<div class="form-group"> 
+							<p>
+								{{ form.username.label(class = 'form-group')}}{{form.username(class = 'form-control')}}<br>
+								{% for error in form.username.errors %}
+								<span style="color: red;">[{{error}}]</span>
+								{% endfor %}
+							</p>
+						</div>
+						<div class="form-group"> 
+							<p>
+								{{ form.password.label(class = 'form-group')}}{{form.password(class = 'form-control')}}<br>
+								{% for error in form.password.errors %}
+								<span style="color: red;">[{{ error }}]</span>
+								{% endfor %}
+							</p>
+						</div>
+						<div class="form-group"> 
+							<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+						</div>
+						<div class="form-group"> 
+							<p>{{ form.submit(class = 'btn btn-primary') }}</p>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

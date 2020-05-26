@@ -13,8 +13,8 @@
 background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 ">
-    <div class="container">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<div class="container">
+        <nav style="margin-top: 5px; width: 80%; margin-left: auto; margin-right: auto;" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{url_for('index')}}">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,10 +34,11 @@ background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, F
             </ul>
             </div>
         </nav>
-    </div>
-    {% block content %}
+ </div>
+{% block content %}
 
-    {%endblock %}
-    <h3>Created by JSK & AV</h3>
+{%endblock %}
+<h3>Created by JSK & AV</h3>
+
 </body>
 </html>
