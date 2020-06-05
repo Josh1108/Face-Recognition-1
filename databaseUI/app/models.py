@@ -30,6 +30,7 @@ class examinee(UserMixin,db.Model):
     attendance =db.Column(db.Boolean,default =False)
     @property
     def url(self):
+        print(images.url(self.filename))
         return images.url(self.filename)
 
     @property

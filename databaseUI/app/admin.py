@@ -9,14 +9,9 @@ from werkzeug.utils import secure_filename
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 import flask
 import os
-imagedir = 'static/images'
-def _list_thumbnail(view, context, model, name):
-    if not model.filename:
-        return ''
+import uuid
+imagedir = 'app/static/images'
 
-    return Markup(
-        '<img src="{model.url}" style="width: 150px;">'.format(model=model)
-    )
 
 class UsersTable(ModelView):
 
@@ -26,7 +21,15 @@ class UsersTable(ModelView):
     def inaccessible_callback(self, name, **kwargs):
         # redirect to login page if user doesn't have access
         return redirect(url_for('login', next=request.url))
+def _list_thumbnail(view, context, model, name):
+    if not model.filename:
+        return ''
+    return Markup('<img src="{model.url}" style="width: 150px;">'.format(model=model))
 
+
+def _imagename_uuid1_gen(obj, file_data):
+    # _, ext = os.path.splitext(file_data.filename)
+    return secure_filename(file_data.filename)
 class Tables(ModelView):
     column_list = [
         'image', 'filename','databasename','RollNumber','attendance'
@@ -41,6 +44,7 @@ class Tables(ModelView):
             'Image',
             base_path=imagedir,
             url_relative_path='images/',
+            namegen=_imagename_uuid1_gen,
         )
     }
     def get_query(self):
@@ -74,7 +78,6 @@ class MyAdminIndexView(AdminIndexView):
 class SeeTables(BaseView):
     @expose('/',methods=["POST","GET"])
     def index(self):
-
         query = examinee.query.with_entities(examinee.databasename).distinct()
         # print(query.all())
         tables = [row.databasename for row in query.all()]

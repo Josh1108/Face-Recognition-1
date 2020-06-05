@@ -8,4 +8,5 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLASK_ADMIN_SWATCH = 'cerulean'
     UPLOAD_IMAGES_DEST ='static/images'
-    UPLOAD_IMAGES_URL = '/static/images/'
+    UPLOAD_IMAGES_URL = '../static/images/'
+    DEBUG = True
