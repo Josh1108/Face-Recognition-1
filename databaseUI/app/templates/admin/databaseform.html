@@ -1,0 +1,14 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<title>Upload new File</title>
+<h1>Upload new File</h1>
+<form action='' method="POST" enctype="multipart/form-data">
+    <input type="text" id="dataname" name="dataname", placeholder="database name">
+    <p>
+    <input type='file' name='file[]' multiple>
+    <input type='submit' value='upload'>
+    </p>
+
+</form>
+{% endblock %}

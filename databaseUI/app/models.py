@@ -1,6 +1,10 @@
-from app import db,login
+from app import db,login,app
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from flask_uploads import UploadSet, IMAGES, configure_uploads,patch_request_class
+images = UploadSet('images', IMAGES)
+patch_request_class(app, 16 * 1024 * 1024)
+configure_uploads(app, (images))
 class User(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -18,7 +22,18 @@ def load_user(id):
 
 class examinee(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    databasename = db.Column(db.String(64), index=True, unique=True)
+    databasename = db.Column(db.String(64), index=True)
     # image = db.Column(db.LargeBinary)
-    image =db.Column(db.String(64))
+    # name = db.Column(db.String(64), unique=True) 
+    filename =db.Column(db.String(128))
     RollNumber=db.Column(db.String(64), index=True, unique = True)
+    attendance =db.Column(db.Boolean,default =False)
+    @property
+    def url(self):
+        return images.url(self.filename)
+
+    @property
+    def filepath(self):
+        if self.filename is None:
+            return
+        return images.path(self.filename)
