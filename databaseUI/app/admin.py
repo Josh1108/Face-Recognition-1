@@ -126,14 +126,10 @@ class TrainDatabase(BaseView):
         query = examinee.query.with_entities(examinee.databasename).distinct()
         tables = [row.databasename for row in query.all()]
         if request.method=="POST":
-            req = request.form.get('database-select')
+            database = request.form.get('database-select')
             # run API and show progress bar
-            res = db.session.execute('SELECT * FROM examinee WHERE examinee.databasename=:val',{'val':req})
-            lst=[]
-            for r in res:
-                # print(r)
-                lst.append(r[2])
-            self.redirect(url_for('training'),database = req,lst = lst)
+            
+            return redirect(url_for('training',database = database))
             
 
 

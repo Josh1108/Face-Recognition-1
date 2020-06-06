@@ -25,7 +25,7 @@ migrate = Migrate(app, db)
 # images = UploadSet('images', IMAGES)
 # configure_uploads(app, (images))
 # patch_request_class(app, 16 * 1024 * 1024)
-from app import routes, models
+from app import routes, models,prediction
 from app.admin import UsersTable, Tables,MyAdminIndexView,SeeTables,CreateDatabase,TrainDatabase
 from app.models import examinee
 
