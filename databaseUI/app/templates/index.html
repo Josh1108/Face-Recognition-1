@@ -13,10 +13,24 @@
 </div>
 <div class="container">
     {% if current_user.username %}
-        <h1>Hi, {{ current_user.username }}!</h1>
+        <h1 style="margin-bottom: 2rem;">Hi, {{ current_user.username }}!</h1>
+        <a href="/admin" style="background-color: #007bff;
+							  color: white;
+							  padding: 1em 1.5em;
+							  text-decoration: none;
+							  text-transform: uppercase;">
+		Continue To Database
+		</a>
     {% else %}
         <h1>Hi, User!</h1>
-        <h3>Please login to continue.</h3>
+        <h3 style="margin-bottom: 2rem;">Please login to continue.</h3>
+        <a href="{{url_for('login')}}" style="background-color: #007bff;
+							  color: white;
+							  padding: 1em 1.5em;
+							  text-decoration: none;
+							  text-transform: uppercase;">
+		Login
+		</a>
     {% endif %}
 
     <!-- Ye niche ka text dalna hai -->
