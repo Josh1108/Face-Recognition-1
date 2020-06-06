@@ -1,16 +1,23 @@
 {% extends 'admin/master.html' %}
 
 {% block body %}
-<form action="" method="POST">
-  <label for="database-select">Choose a Database</label>
-  <select name = "database-select" id="database-select">
-    <option value="">--Please choose an option--</option>
-    {% for table in tables %}
-    <option value="{{table}}">{{table}}</option>
-    {% endfor %}
-  </select>
-  <div class="form-example">
-    <input type="submit" value="Submit">
+<div class="jumbotron">
+  <h1>Choose a Database</h1>
+  <div class="container">
+    <form action="" method="POST">
+      <label for="database-select" style="margin-bottom: 5px; font-size: large;">Databases</label>
+      <div class="form-group">
+        <select size="1.5em" name = "database-select" id="database-select">
+          <option aria-setsize="1.5em" value="">--Please choose an option--</option>
+          {% for table in tables %}
+          <option value="{{table}}">{{table}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-example">
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </div>
+    </form>
   </div>
-</form>
+</div>
 {% endblock %}
