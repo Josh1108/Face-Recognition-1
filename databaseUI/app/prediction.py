@@ -9,7 +9,7 @@ from scipy.spatial.distance import cosine
 from mtcnn.mtcnn import MTCNN
 from keras_vggface.vggface import VGGFace
 from keras_vggface.utils import preprocess_input
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import os
 import base64
 import io
@@ -101,8 +101,9 @@ def modelform():
     a.append(e)
     return a
 
-@app.route('/prediction',methods=['GET','POST'])
-def prediction():
+@app.route('/training',methods=['GET','POST'])
+def train():
+    r = request
     
 @app.route('/something', methods=['GET','POST'])
 def facedetection():

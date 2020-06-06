@@ -10,6 +10,7 @@ ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 import flask
 import os
 import uuid
+import app.prediction
 imagedir = 'app/static/images'
 
 
@@ -116,4 +117,26 @@ class CreateDatabase(BaseView):
             return redirect(url_for('examinee.index_view', req = req))
         return self.render('admin/databaseform.html')
 
+class TrainDatabase(BaseView):
+    '''
+        Train a Database
+    '''
+    @expose('/', methods = ['POST','GET'])
+    def index(self):
+        query = examinee.query.with_entities(examinee.databasename).distinct()
+        tables = [row.databasename for row in query.all()]
+        if request.method=="POST":
+            req = request.form.get('database-select')
+            # run API and show progress bar
+            res = db.session.execute('SELECT * FROM examinee WHERE examinee.databasename=:val',{'val':req})
+            lst=[]
+            for r in res:
+                # print(r)
+                lst.append(r[2])
+            self.redirect(url_for('training'),database = req,lst = lst)
+            
+
+
+            # return redirect(url_for('examinee.index_view', req=req))
+        return self.render('admin/train.html',tables=tables)
             
