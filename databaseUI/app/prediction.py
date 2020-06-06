@@ -101,8 +101,10 @@ def modelform():
     a.append(e)
     return a
 
-
-@app.route('/prediction', methods=['GET','POST'])
+@app.route('/prediction',methods=['GET','POST'])
+def prediction():
+    
+@app.route('/something', methods=['GET','POST'])
 def facedetection():
     r=request
     start=time.time()

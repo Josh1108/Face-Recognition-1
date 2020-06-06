@@ -5,12 +5,11 @@ from app.forms import LoginForm
 from flask_login import current_user, login_user,logout_user
 from app.models import User
 from flask import request
-@app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html', title='Home')
 
-
+@app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -26,13 +25,13 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page=url_for('index')
         flash('Successfully logged in')
-        return redirect(url_for('index'))
+        return redirect(url_for('admin.index'))
     return render_template('login.html', title='Sign In', form=form)
 @app.route('/logout')
 def logout():
     logout_user()
     flash('Successfully logged out')
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 @app.route('/api/databases', methods=["GET"])
 def get_databases():
     result = db.session.execute('SELECT DISTINCT databasename FROM examinee;')
