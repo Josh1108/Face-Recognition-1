@@ -116,50 +116,46 @@ def modelform(database):
     for emb in embeddings:
         ans.append(cosine(emb,new_user_emb))
     index = np.argsort(ans)
-    a =[]
-    a.append(iden[index[0]])
-    a.append(iden[index[1]])
-    a.append(iden[index[2]])
-    d = (1-ans[index[0]])*100
-    print(d)
-    d ="{:.2f}".format(d)
-    e = str(d) + "%"
-    a.append(e)
-    d = (1-ans[index[1]])*100
-    print(d)
-    d ="{:.2f}".format(d)
-    e = str(d) + "%"
-    a.append(e)
-    d = (1-ans[index[2]])*100
-    print(d)
-    d ="{:.2f}".format(d)
-    e = str(d) + "%"
-    a.append(e)
-    return a
 
+    d = (1-ans[index[0]])*100
+    d ="{:.2f}".format(d)
+    d = str(d) + "%"
+
+    e = (1-ans[index[1]])*100
+    e ="{:.2f}".format(d)
+    e = str(d) + "%"
+
+    n = (1-ans[index[2]])*100
+    n ="{:.2f}".format(d)
+    n = str(d) + "%"
+
+    a ={name: [iden[index[0]], iden[index[1]]], iden[index[2]],
+    	percentage: [d,e,n]}
+    return a
     
 @app.route('/something', methods=['GET','POST'])
 def facedetection():
     # return(jsonify({"Party":"Party"}))
-    data = request.get_json() or {}
+    # data = request.get_json() or {}
     # database = request.args.get('database', None)
     start=time.time()
-    # var = request.json["imageString"]
-    if 'imageString' not in data or 'dataset' not in data :
-        return(jsonify({"Party":"Party"}))
-    var =data['imageString']
-    database = data['database']
+    var = request.json["imageString"]
+    database = request.json["dataset"]
+    # if 'imageString' not in data or 'dataset' not in data :
+    #     return(jsonify({"Party":"Party"}))
+    # var =data['imageString']
+    # database = data['dataset']
     imgdata = base64.b64decode(var)
     print("Time to get data and convert",time.time() - start)
     start=time.time()
-    filename = './test/test_img.png'
+    filename = './test_img.png'
     with open(filename, 'wb') as f:
         f.write(imgdata)
     print("Time to write:",time.time() - start)
     start=time.time()
     index = modelform(database)
     print("Time for model things",time.time() - start)
-    response =[index[0],index[1],index[2],index[3],index[4],index[5]]
+    response = jsonify(a)
     print(response)
     # for file in os.listdir('./test/'):
     #     if file.endswith('.png'):
