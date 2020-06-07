@@ -148,7 +148,7 @@ def facedetection():
     imgdata = base64.b64decode(var)
     print("Time to get data and convert",time.time() - start)
     start=time.time()
-    filename = './test_img.png'
+    filename = './test/test_img.png'
     with open(filename, 'wb') as f:
         f.write(imgdata)
     print("Time to write:",time.time() - start)
