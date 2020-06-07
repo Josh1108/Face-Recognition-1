@@ -1,5 +1,5 @@
-import flask
-from flask import Flask,request,Response,redirect,url_for
+import flask 
+from flask import Flask,request,Response,redirect,url_for,jsonify
 import cv2
 import numpy as np
 from PIL import Image
@@ -142,7 +142,7 @@ def modelform(database):
 def facedetection():
     database = request.args.get('req', None)
     start=time.time()
-    var = r.json["imageString"]
+    var = request.json["imageString"]
     imgdata = base64.b64decode(var)
     print("Time to get data and convert",time.time() - start)
     start=time.time()
