@@ -26,16 +26,17 @@ migrate = Migrate(app, db)
 # configure_uploads(app, (images))
 # patch_request_class(app, 16 * 1024 * 1024)
 from app import routes, models,prediction
-from app.admin import UsersTable, Tables,MyAdminIndexView,SeeTables,CreateDatabase,TrainDatabase
+from app.admin import UsersTable, Tables,MyAdminIndexView,SeeTables,CreateDatabase,TrainDatabase,Logout
 from app.models import examinee
 
-admin = Admin(app, name='facerecog', template_mode='bootstrap3',index_view=MyAdminIndexView())
-admin.add_view(UsersTable(models.User, db.session))
-admin.add_view(Tables(models.examinee,db.session))
-admin.add_view(SeeTables('selectdb', url='/selectdb'))
-admin.add_view(CreateDatabase('CreateDatabase', url= '/createdb'))
-admin.add_view(TrainDatabase('Train Database', url= '/traindb'))
+admin = Admin(app, name='FaceVerifier', template_mode='bootstrap3',index_view=MyAdminIndexView())
 
+admin.add_view(Tables(models.examinee,db.session,'Students Database'))
+admin.add_view(SeeTables('Select Database', url='/selectdb'))
+admin.add_view(CreateDatabase('Create Database', url= '/createdb'))
+admin.add_view(TrainDatabase('Train Database', url= '/traindb'))
+admin.add_view(UsersTable(models.User, db.session,'Users'))
+admin.add_view(Logout('Logout', url= '/logout'))
 @event.listens_for(examinee, 'after_delete')
 def del_image(mapper, connection, target):
     if target.filepath is not None:

@@ -1,7 +1,7 @@
 
 from flask_admin.contrib.sqla import ModelView, view
 from flask_admin import AdminIndexView,expose,BaseView, form
-from flask_login import current_user
+from flask_login import current_user,logout_user
 from flask import redirect, url_for, request,render_template,Markup,flash
 from app.models import examinee
 from app import db
@@ -76,7 +76,14 @@ class MyAdminIndexView(AdminIndexView):
         # redirect to login page if user doesn't have access
         return redirect(url_for('login', next=request.url))
 
-class SeeTables(BaseView):
+class MyBaseView(BaseView):
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+    def inaccessible_callback(self, name, **kwargs):
+        # redirect to login page if user doesn't have access
+        return redirect(url_for('login', next=request.url))
+class SeeTables(MyBaseView):
     @expose('/',methods=["POST","GET"])
     def index(self):
         query = examinee.query.with_entities(examinee.databasename).distinct()
@@ -93,7 +100,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-class CreateDatabase(BaseView):
+class CreateDatabase(MyBaseView):
     @expose('/',methods=["POST","GET"])
     def index(self):
         if request.method=="POST":
@@ -117,7 +124,7 @@ class CreateDatabase(BaseView):
             return redirect(url_for('examinee.index_view', req = req))
         return self.render('admin/databaseform.html')
 
-class TrainDatabase(BaseView):
+class TrainDatabase(MyBaseView):
     '''
         Train a Database
     '''
@@ -135,4 +142,13 @@ class TrainDatabase(BaseView):
 
             # return redirect(url_for('examinee.index_view', req=req))
         return self.render('admin/train.html',tables=tables)
-            
+class Logout(MyBaseView):
+    '''
+    Logout
+    '''
+    @expose('/', methods = ['POST','GET'])
+    def index(self):
+        logout_user()
+        flash('Successfully logged out')
+        return redirect(url_for('login'))
+      
