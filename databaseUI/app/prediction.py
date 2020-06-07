@@ -122,15 +122,15 @@ def modelform(database):
     d = str(d) + "%"
 
     e = (1-ans[index[1]])*100
-    e ="{:.2f}".format(d)
-    e = str(d) + "%"
+    e ="{:.2f}".format(e)
+    e = str(e) + "%"
 
     n = (1-ans[index[2]])*100
-    n ="{:.2f}".format(d)
-    n = str(d) + "%"
+    n ="{:.2f}".format(n)
+    n = str(n) + "%"
 
-    a ={name: [iden[index[0]], iden[index[1]], iden[index[2]]], 
-    	percentage: [d,e,n]}
+    a ={"name": [iden[index[0]], iden[index[1]], iden[index[2]]], 
+    	"percentage": [d,e,n]}
     return a
     
 @app.route('/something', methods=['POST'])
