@@ -22,7 +22,7 @@ import tensorflow as tf
 from app import app,db
 global graph
 graph = tf.get_default_graph()
-
+model =load_model('app/model/face_recog.h5')
 def extract_face(filename, required_size=(224, 224)):
     pixels = pyplot.imread(filename)
     detector = MTCNN()
@@ -47,7 +47,7 @@ def get_embeddings(filenames,iden):
             try:
                 faces = pyplot.imread('./dataset/' + f)
                 faces = faces.resize((224, 224))
-                faces = asarray(image)
+                faces = asarray(face)
             except:
                 print("Whole image couldn't be taken.{} is skipped".format(f))
                 continue
@@ -81,7 +81,7 @@ def training():
     for item in lst:
         filenames.append(folder+item)
     print(filenames)
-    model =load_model('app/model/face_recog.h5')
+    # model =load_model('app/model/face_recog.h5')
     iden =[]
     embeddings,iden = get_embeddings(filenames,iden)
     with open(os.getcwd()+"/app/static/embeddings/{}.txt".format(database),'wb') as f:
@@ -100,11 +100,12 @@ def modelform(database):
             print("Can't find face using whole image")
             new_face = pyplot.imread('./test/' + f,0)
             new_face = Image.fromarray(new_face)
-            new_face = image.resize((224,224))
+            new_face = new_face.resize((224,224))
             new_face = asarray(new_face)
         new_face = asarray(new_face,'float32')
         new_face = preprocess_input(new_face, version=2)
         new_face = new_face.reshape(1,224,224,3)
+
         with graph.as_default():
             new_user_emb = model.predict(new_face)
         new_user_emb = new_user_emb.reshape(-1)
