@@ -129,7 +129,7 @@ def modelform(database):
     n ="{:.2f}".format(d)
     n = str(d) + "%"
 
-    a ={name: [iden[index[0]], iden[index[1]]], iden[index[2]],
+    a ={name: [iden[index[0]], iden[index[1]], iden[index[2]]], 
     	percentage: [d,e,n]}
     return a
     
