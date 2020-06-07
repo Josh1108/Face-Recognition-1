@@ -140,23 +140,24 @@ def modelform(database):
     
 @app.route('/something', methods=['GET','POST'])
 def facedetection():
-    database = request.args.get('database', None)
-    start=time.time()
-    # var = request.json["imageString"]
-    var =request.args.get('imageString', None)
-    imgdata = base64.b64decode(var)
-    print("Time to get data and convert",time.time() - start)
-    start=time.time()
-    filename = './test/test_img.png'
-    with open(filename, 'wb') as f:
-        f.write(imgdata)
-    print("Time to write:",time.time() - start)
-    start=time.time()
-    index = modelform(database)
-    print("Time for model things",time.time() - start)
-    response =[index[0],index[1],index[2],index[3],index[4],index[5]]
-    print(response)
-    # for file in os.listdir('./test/'):
-    #     if file.endswith('.png'):
-    #         os.remove('./test/' + file) 
-    return Response(response=response, status=200, mimetype="application/json")
+    return(jsonify({"Party":"Party"))
+    # database = request.args.get('database', None)
+    # start=time.time()
+    # # var = request.json["imageString"]
+    # var =request.args.get('imageString', None)
+    # imgdata = base64.b64decode(var)
+    # print("Time to get data and convert",time.time() - start)
+    # start=time.time()
+    # filename = './test/test_img.png'
+    # with open(filename, 'wb') as f:
+    #     f.write(imgdata)
+    # print("Time to write:",time.time() - start)
+    # start=time.time()
+    # index = modelform(database)
+    # print("Time for model things",time.time() - start)
+    # response =[index[0],index[1],index[2],index[3],index[4],index[5]]
+    # print(response)
+    # # for file in os.listdir('./test/'):
+    # #     if file.endswith('.png'):
+    # #         os.remove('./test/' + file) 
+    # return Response(response=response, status=200, mimetype="application/json")
