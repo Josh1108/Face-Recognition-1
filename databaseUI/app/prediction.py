@@ -91,10 +91,56 @@ def training():
     print("Yo, model trained?")
     return redirect(url_for('login'))
 
+
+def modelform(database):
+    for f in os.listdir('./test/'):
+        try:
+            new_face = extract_face('./test/' + f)
+        except:
+            print("Can't find face using whole image")
+            new_face = pyplot.imread('./test/' + f,0)
+            new_face = Image.fromarray(new_face)
+            new_face = image.resize((224,224))
+            new_face = asarray(new_face)
+        new_face = asarray(new_face,'float32')
+        new_face = preprocess_input(new_face, version=2)
+        new_face = new_face.reshape(1,224,224,3)
+        with graph.as_default():
+            new_user_emb = model.predict(new_face)
+        new_user_emb = new_user_emb.reshape(-1)
+    ans = []
+    with open(os.getcwd()+"/app/static/embeddings/{}.txt".format(database),"rb") as f:
+        embeddings = pickle.load(f)
+    with open(os.getcwd()+"/app/static/identity/{}.txt".format(database),"rb") as f:
+        iden = pickle.load(f)
+    for emb in embeddings:
+        ans.append(cosine(emb,new_user_emb))
+    index = np.argsort(ans)
+    a =[]
+    a.append(iden[index[0]])
+    a.append(iden[index[1]])
+    a.append(iden[index[2]])
+    d = (1-ans[index[0]])*100
+    print(d)
+    d ="{:.2f}".format(d)
+    e = str(d) + "%"
+    a.append(e)
+    d = (1-ans[index[1]])*100
+    print(d)
+    d ="{:.2f}".format(d)
+    e = str(d) + "%"
+    a.append(e)
+    d = (1-ans[index[2]])*100
+    print(d)
+    d ="{:.2f}".format(d)
+    e = str(d) + "%"
+    a.append(e)
+    return a
+
     
 @app.route('/something', methods=['GET','POST'])
 def facedetection():
-    r=request
+    database = request.args.get('req', None)
     start=time.time()
     var = r.json["imageString"]
     imgdata = base64.b64decode(var)
@@ -105,7 +151,7 @@ def facedetection():
         f.write(imgdata)
     print("Time to write:",time.time() - start)
     start=time.time()
-    index = modelform()
+    index = modelform(database)
     print("Time for model things",time.time() - start)
     response =[index[0],index[1],index[2],index[3],index[4],index[5]]
     print(response)
