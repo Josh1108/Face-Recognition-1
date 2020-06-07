@@ -141,10 +141,14 @@ def modelform(database):
 @app.route('/something', methods=['GET','POST'])
 def facedetection():
     # return(jsonify({"Party":"Party"}))
-    database = request.args.get('database', None)
+    data = request.get_json() or {}
+    # database = request.args.get('database', None)
     start=time.time()
     # var = request.json["imageString"]
-    var =request.args.get('imageString', None)
+    if 'imageString' not in data or 'database' not in data :
+        return(jsonify({"Party":"Party"}))
+    var =data['imageString']
+    database = data['database']
     imgdata = base64.b64decode(var)
     print("Time to get data and convert",time.time() - start)
     start=time.time()
