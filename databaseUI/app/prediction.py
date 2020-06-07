@@ -140,9 +140,10 @@ def modelform(database):
     
 @app.route('/something', methods=['GET','POST'])
 def facedetection():
-    database = request.args.get('req', None)
+    database = request.args.get('database', None)
     start=time.time()
-    var = request.json["imageString"]
+    # var = request.json["imageString"]
+    var =request.args.get('imageString', None)
     imgdata = base64.b64decode(var)
     print("Time to get data and convert",time.time() - start)
     start=time.time()
