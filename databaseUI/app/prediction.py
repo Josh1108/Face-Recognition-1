@@ -142,6 +142,8 @@ def facedetection():
     # database = request.args.get('database', None)
     start=time.time()
     var = request.json["imageString"]
+    print(var)
+    print(request.json)
     # if 'imageString' not in data or 'dataset' not in data :
     #     return(jsonify({"Party":"Party"}))
     # var =data['imageString']
