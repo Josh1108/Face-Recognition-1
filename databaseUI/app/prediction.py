@@ -20,11 +20,16 @@ import pickle
 import time
 import tensorflow as tf
 from app import app,db
+from tensorflow import keras
 global graph
 graph = tf.get_default_graph()
 model =load_model('app/model/face_recog.h5')
+
 def extract_face(filename, required_size=(224, 224)):
-    pixels = pyplot.imread(filename)
+    try:
+        pixels = pyplot.imread(filename)
+    except:
+        print("error is here")
     detector = MTCNN()
     results = detector.detect_faces(pixels)
     x1, y1, width, height = results[0]['box']
@@ -47,7 +52,7 @@ def get_embeddings(filenames,iden):
             try:
                 faces = pyplot.imread('./dataset/' + f)
                 faces = faces.resize((224, 224))
-                faces = asarray(face)
+                faces = asarray(faces)
             except:
                 print("Whole image couldn't be taken.{} is skipped".format(f))
                 continue
@@ -94,6 +99,7 @@ def training():
 
 def modelform(database):
     for f in os.listdir('./test/'):
+        print(f)
         try:
             new_face = extract_face('./test/' + f)
         except:
@@ -112,11 +118,13 @@ def modelform(database):
     ans = []
     with open(os.getcwd()+"/app/static/embeddings/{}.txt".format(database),"rb") as f:
         embeddings = pickle.load(f)
+    print(embeddings)
     with open(os.getcwd()+"/app/static/identity/{}.txt".format(database),"rb") as f:
         iden = pickle.load(f)
     for emb in embeddings:
         ans.append(cosine(emb,new_user_emb))
     index = np.argsort(ans)
+    print(index)
 
     d = (1-ans[index[0]])*100
     d ="{:.2f}".format(d)
@@ -142,16 +150,16 @@ def facedetection():
     # database = request.args.get('database', None)
     start=time.time()
     var = request.json["imageString"]
-    print(var)
-    print(request.json)
+    print("Checking")
     # if 'imageString' not in data or 'dataset' not in data :
     #     return(jsonify({"Party":"Party"}))
     # var =data['imageString']
     database = request.json['dataset']
+    print(database)
     imgdata = base64.b64decode(var)
     print("Time to get data and convert",time.time() - start)
     start=time.time()
-    filename = './test/test_img.png'
+    filename = './test/test_img.jpg'
     with open(filename, 'wb') as f:
         f.write(imgdata)
     print("Time to write:",time.time() - start)
@@ -159,7 +167,7 @@ def facedetection():
     index = modelform(database)
     print("Time for model things",time.time() - start)
     response = jsonify(a)
-    print(response)
+    # print(response)
     # for file in os.listdir('./test/'):
     #     if file.endswith('.png'):
     #         os.remove('./test/' + file) 
