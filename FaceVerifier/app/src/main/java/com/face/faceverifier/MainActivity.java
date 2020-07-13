@@ -8,11 +8,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.airbnb.lottie.LottieAnimationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(MainActivity.this, activity_dataset.class),
+                    startActivity(new Intent(MainActivity.this, activity_verify.class),
                             ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
 
                 }

@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
@@ -145,7 +146,7 @@ public class recog_activity extends AppCompatActivity {
                         break;
                     case R.id.how_to_use:
                         Log.i("NAV","How to use");
-                        Intent inten = new Intent(getApplicationContext(), developers.class);
+                        Intent inten = new Intent(getApplicationContext(), how_to_use.class);
                         startActivity(inten);
                         break;
                     case R.id.back:
@@ -156,6 +157,25 @@ public class recog_activity extends AppCompatActivity {
                         break;
                 }
                 return true;
+            }
+        });
+
+        verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!encodedImage.isEmpty()) {
+                    flag = 0;
+                    capture.setEnabled(false);
+                    verify.setEnabled(false);
+                    progressBar.setVisibility(View.VISIBLE);
+                    textans1.setVisibility(View.INVISIBLE);
+                    textans2.setVisibility(View.INVISIBLE);
+                    textans3.setVisibility(View.INVISIBLE);
+                    ans1.setVisibility(View.INVISIBLE);
+                    ans2.setVisibility(View.INVISIBLE);
+                    ans3.setVisibility(View.INVISIBLE);
+                    new UploadImages().execute();
+                }
             }
         });
 
@@ -340,7 +360,11 @@ public class recog_activity extends AppCompatActivity {
         encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
     }
 
-
+    public Bitmap convertBase64ToBitmap(String encodedString){
+        byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+        return bitmap;
+    }
 
     @Override
     public void onBackPressed() {
@@ -366,22 +390,6 @@ public class recog_activity extends AppCompatActivity {
 
     }
 
-    public void onclick(View view){
-        if(!encodedImage.isEmpty()) {
-            flag=0;
-            capture.setEnabled(false);
-            verify.setEnabled(false);
-            progressBar.setVisibility(View.VISIBLE);
-            textans1.setVisibility(View.INVISIBLE);
-            textans2.setVisibility(View.INVISIBLE);
-            textans3.setVisibility(View.INVISIBLE);
-            ans1.setVisibility(View.INVISIBLE);
-            ans2.setVisibility(View.INVISIBLE);
-            ans3.setVisibility(View.INVISIBLE);
-            new UploadImages().execute();
-        }
-    }
-
     private class UploadImages extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -394,10 +402,11 @@ public class recog_activity extends AppCompatActivity {
             try {
                 Log.i("Check","try ke andr");
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("imageString", encodedImage);
                 jsonObject.put("dataset",dataset);
+                jsonObject.put("imageString", encodedImage);
                 String data = jsonObject.toString();
-                String yourURL = "http://ai.dtu.ac.in:8000/";
+                Log.i("Sending This JSON", data);
+                String yourURL = "https://www.ai.dtu.ac.in/something";
                 URL url = new URL(yourURL);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setDoOutput(true);
@@ -411,6 +420,7 @@ public class recog_activity extends AppCompatActivity {
                 writer.flush();
                 writer.close();
                 out.close();
+
                 connection.connect();
                 Log.i("PRE", "CONN");
                 InputStream in = connection.getInputStream();
@@ -446,40 +456,75 @@ public class recog_activity extends AppCompatActivity {
                 Toast.makeText(recog_activity.this, "Server Down", Toast.LENGTH_LONG).show();
                 return;
             }
-            if (result == null || result.equals("NoFaceDetected")) {
-                Toast.makeText(recog_activity.this, "No face detected", Toast.LENGTH_LONG).show();
-                return;
+            try{
+                JSONObject json = new JSONObject(result);
+                String da = json.getString("result");
+                if(da.equals("not_found")){
+                    Toast.makeText(recog_activity.this, "No Face Detected", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }catch (Exception e){
+                e.printStackTrace();
             }
-            if (result.equals("lessthanfifty")) {
-                Toast.makeText(recog_activity.this, "No Match Found!!", Toast.LENGTH_LONG).show();
-                return;
-            }
-
             try {
-                final String[] arr = result.split("#", 6);
-                String one,two,three,four,five,six;
-                one = arr[0];
-                two = arr[1];
-                three = arr[2];
-                String[] temp = one.split(".",2);
-                one = temp[0];
-                temp = two.split(".",2);
-                two = temp[0];
-                temp = three.split(".",2);
-                three = temp[0];
-                four = arr[3];
-                five = arr[4];
-                six = arr[5];
+                final String one,two,three,four,five,six;
+                JSONObject json = new JSONObject(result);
+                String da = json.getString("name");
+                String ad = json.getString("percentage");
+                String i_data = json.getString("imageString");
+                JSONArray arr = new JSONArray(da);
+                JSONArray ra = new JSONArray(ad);
+                JSONArray I_data = new JSONArray(i_data);
+
+                String image1,image2,image3;
+
+                image1 = String.valueOf(I_data.getString(0));
+                image2 = String.valueOf(I_data.getString(1));
+                image3 = String.valueOf(I_data.getString(2));
+
+                Log.i("Image",image1);
+                Bitmap bm = convertBase64ToBitmap(image1);
+                ans1.setImageBitmap(bm);
+                bm = convertBase64ToBitmap(image2);
+                ans2.setImageBitmap(bm);
+                bm = convertBase64ToBitmap(image3);
+                ans3.setImageBitmap(bm);
+
+                String[] bits;
+                String temp1,temp2,temp3;
+
+                temp1 = String.valueOf(arr.getString(0));
+                bits = temp1.split("/");
+                temp1 = bits[bits.length - 1];
+                Log.i("debug kro",temp1);
+                bits = temp1.split("\\.(?=[^\\.]+$)");
+                one = bits[0];
+
+                temp2 = String.valueOf(arr.getString(1));
+                bits = temp2.split("/");
+                temp2 = bits[bits.length - 1];
+                bits = temp2.split("\\.(?=[^\\.]+$)");
+                two = bits[0];
+
+                temp3 = String.valueOf(arr.getString(2));
+                bits = temp3.split("/");
+                temp3 = bits[bits.length - 1];
+                bits = temp3.split("\\.(?=[^\\.]+$)");
+                three = bits[0];
+
+                four = String.valueOf(ra.getString(0));
+                five = String.valueOf(ra.getString(1));
+                six = String.valueOf(ra.getString(2));
+
+                int integer = Integer.parseInt(four.substring(0,2));
+                Log.i("Integer",Integer.toString(integer));
+                if(integer < 50){
+                    Toast.makeText(recog_activity.this, "No close matching found, Verify carefully!", Toast.LENGTH_LONG).show();
+                }
                 Log.i("Roll No", one + " "  + two + " " + three + " " + four + " "  + five + " " + six );
-                textans1.setText(one + " " + four);
-                textans2.setText(two + " " + five);
-                textans3.setText(three + " " + six);
-//                    Bitmap b = getBitmapFromAssets(one);
-//                    ans1.setImageBitmap(b);
-//                    b = getBitmapFromAssets(two);
-//                    ans2.setImageBitmap(b);
-//                    b = getBitmapFromAssets(three);
-//                    ans3.setImageBitmap(b);
+                textans1.setText(one + "\n" + four);
+                textans2.setText(two + "\n" + five);
+                textans3.setText(three + "\n " + six);
                 ans1.setVisibility(View.VISIBLE);
                 ans2.setVisibility(View.VISIBLE);
                 ans3.setVisibility(View.VISIBLE);
@@ -493,9 +538,9 @@ public class recog_activity extends AppCompatActivity {
                 textans1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        present = arr[0];
+                        present = one;
                         AlertDialog.Builder builder = new AlertDialog.Builder(recog_activity.this);
-                        builder.setMessage("By confirming you will mark this person as present.")
+                        builder.setMessage("By confirming you will mark " + one + " as present.")
                                 .setCancelable(false)
                                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                                     @Override
@@ -517,9 +562,9 @@ public class recog_activity extends AppCompatActivity {
                 textans2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        present = arr[1];
+                        present = two;
                         AlertDialog.Builder builder = new AlertDialog.Builder(recog_activity.this);
-                        builder.setMessage("By confirming you will mark this person as present.")
+                        builder.setMessage("By confirming you will mark " + two + " as present.")
                                 .setCancelable(false)
                                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                                     @Override
@@ -541,9 +586,9 @@ public class recog_activity extends AppCompatActivity {
                 textans3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        present = arr[2];
+                        present = three;
                         AlertDialog.Builder builder = new AlertDialog.Builder(recog_activity.this);
-                        builder.setMessage("By confirming you will mark this person as present.")
+                        builder.setMessage("By confirming you will mark " + three + " as present.")
                                 .setCancelable(false)
                                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                                     @Override
@@ -573,6 +618,7 @@ public class recog_activity extends AppCompatActivity {
     }
 
     public void markattendence() {
+        new attend().execute();
     }
     private class attend extends AsyncTask<Void, Void, Void> {
         @Override
@@ -584,11 +630,13 @@ public class recog_activity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try {
                 Log.i("Check","try ke andr");
+                Log.i("Database",dataset);
+                Log.i("Iski laga do",present);
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("database",dataset);
                 jsonObject.put("attendance",present);
                 String data = jsonObject.toString();
-                String yourURL = "";
+                String yourURL = "https://www.ai.dtu.ac.in/api/databases/attendance";
                 URL url = new URL(yourURL);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setDoOutput(true);
@@ -631,24 +679,31 @@ public class recog_activity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            progressBar.setVisibility(View.INVISIBLE);
-            ans1.setVisibility(View.INVISIBLE);
-            ans2.setVisibility(View.INVISIBLE);
-            ans3.setVisibility(View.INVISIBLE);
-            textans1.setVisibility(View.INVISIBLE);
-            textans2.setVisibility(View.INVISIBLE);
-            textans1.setEnabled(false);
-            textans2.setEnabled(false);
-            textans3.setEnabled(false);
-            textans3.setVisibility(View.INVISIBLE);
-            if (msg == null) {
-                Toast.makeText(recog_activity.this, "Could not mark attendance!", Toast.LENGTH_LONG).show();
+            try {
+                progressBar.setVisibility(View.INVISIBLE);
+                ans1.setVisibility(View.INVISIBLE);
+                ans2.setVisibility(View.INVISIBLE);
+                ans3.setVisibility(View.INVISIBLE);
+                textans1.setVisibility(View.INVISIBLE);
+                textans2.setVisibility(View.INVISIBLE);
+                textans1.setEnabled(false);
+                textans2.setEnabled(false);
+                textans3.setEnabled(false);
+                textans3.setVisibility(View.INVISIBLE);
+                JSONObject jsonObject = new JSONObject(msg);
+                String yaar = jsonObject.getString("result");
+                Log.i("Result",yaar);
+                if (!yaar.equals("done")) {
+                    Toast.makeText(recog_activity.this, "Could not mark attendance!", Toast.LENGTH_LONG).show();
+                }
+                if (yaar.equals("done")) {
+                    Toast.makeText(recog_activity.this, "Attendance Marked!", Toast.LENGTH_LONG).show();
+                }
+                msg = null;
+                return;
+            }catch (Exception e){
+                e.printStackTrace();
             }
-            if (msg.equals("done")) {
-                Toast.makeText(recog_activity.this, "Attendance Marked!", Toast.LENGTH_LONG).show();
-            }
-            msg=null;
-            return;
         }
 
     }

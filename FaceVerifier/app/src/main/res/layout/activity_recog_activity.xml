@@ -17,7 +17,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:text="Upload Image"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/Check"
@@ -27,9 +27,13 @@
 
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="390dp"
-            android:layout_height="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/ans2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,32 +43,36 @@
         <ImageView
             android:id="@+id/ans1"
             android:layout_width="122dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="145dp"
+            android:layout_marginStart="2dp"
             android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/textans1"
             app:layout_constraintEnd_toStartOf="@+id/ans2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView1"
+            app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <ImageView
             android:id="@+id/ans2"
             android:layout_width="122dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="145dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/textans2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView1"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <ImageView
             android:id="@+id/ans3"
             android:layout_width="122dp"
-            android:layout_height="150dp"
+            android:layout_height="145dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/textans3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ans2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView1"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <Button
@@ -72,8 +80,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="35dp"
-            android:onClick="onclick"
+            android:layout_marginBottom="10dp"
             android:text="Verify"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -88,40 +95,52 @@
             android:layout_height="67dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.611" />
 
         <Button
             android:id="@+id/textans1"
-            style="@style/Widget.MaterialComponents.MaterialCalendar.HeaderConfirmButton"
-            android:layout_width="122dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="10dp"
+            android:alpha=".8"
+            android:background="@drawable/border"
+            android:textColor="#03DAC5"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/capture"
             app:layout_constraintEnd_toStartOf="@+id/textans2"
-            app:layout_constraintTop_toBottomOf="@+id/ans1" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/textans2"
-            style="@style/Widget.MaterialComponents.MaterialCalendar.HeaderConfirmButton"
-            android:layout_width="122dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:alpha=".8"
+            android:background="@drawable/border"
+            android:textColor="#03DAC5"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/capture"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ans2" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/textans3"
-            style="@style/Widget.MaterialComponents.MaterialCalendar.HeaderConfirmButton"
-            android:layout_width="122dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintStart_toEndOf="@+id/textans2"
-            app:layout_constraintTop_toBottomOf="@+id/ans3" />
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="10dp"
+            android:alpha=".8"
+            android:background="@drawable/border"
+            android:textColor="#03DAC5"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/capture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textans2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

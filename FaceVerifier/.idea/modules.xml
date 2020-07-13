@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Face Verifier.iml" filepath="$PROJECT_DIR$/Face Verifier.iml" group="Face Verifier" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Face_Verifier.iml" filepath="$PROJECT_DIR$/.idea/modules/Face_Verifier.iml" group="Face_Verifier" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Face Verifier/app" />
     </modules>
   </component>

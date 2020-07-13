@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".how_to_use"></activity>
+        <activity android:name=".activity_verify"></activity>
+        <activity android:name=".how_to_use" />
         <activity android:name=".developers" />
         <activity android:name=".recog_activity" />
         <activity android:name=".activity_dataset" />
