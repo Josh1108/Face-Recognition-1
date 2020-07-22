@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/exceptions"
+        android:icon="@drawable/exception"
+        android:title="Handle Exceptions"/>
+
+    <item android:id="@+id/absent"
+        android:icon="@drawable/absent"
+        android:title="Absents"/>
+
+    <item android:id="@+id/present"
+        android:icon="@drawable/present"
+        android:title="Presents"/>
+
     <item android:id="@+id/back"
         android:icon="@drawable/dataset"
         android:title="Change Dataset"/>

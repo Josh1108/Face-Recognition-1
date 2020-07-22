@@ -19,7 +19,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity_verify"></activity>
+        <activity android:name=".Present"></activity>
+        <activity android:name=".Absent" />
+        <activity android:name=".exceptions" />
+        <activity android:name=".activity_verify" />
         <activity android:name=".how_to_use" />
         <activity android:name=".developers" />
         <activity android:name=".recog_activity" />

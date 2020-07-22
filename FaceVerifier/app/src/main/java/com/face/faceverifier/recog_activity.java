@@ -144,6 +144,24 @@ public class recog_activity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), developers.class);
                         startActivity(intent);
                         break;
+                    case R.id.absent:
+                        Log.i("NAV","Absent");
+                        Intent inet = new Intent(getApplicationContext(), Absent.class);
+                        inet.putExtra("dataset",dataset);
+                        startActivity(inet);
+                        break;
+                    case R.id.present:
+                        Log.i("NAV","Present");
+                        Intent in = new Intent(getApplicationContext(), Present.class);
+                        in.putExtra("dataset",dataset);
+                        startActivity(in);
+                        break;
+                    case R.id.exceptions:
+                        Log.i("NAV","Exceptions");
+                        Intent intet = new Intent(getApplicationContext(), exceptions.class);
+                        intet.putExtra("dataset",dataset);
+                        startActivity(intet);
+                        break;
                     case R.id.how_to_use:
                         Log.i("NAV","How to use");
                         Intent inten = new Intent(getApplicationContext(), how_to_use.class);
