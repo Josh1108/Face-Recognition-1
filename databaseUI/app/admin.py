@@ -22,6 +22,8 @@ class UsersTable(ModelView):
     def inaccessible_callback(self, name, **kwargs):
         # redirect to login page if user doesn't have access
         return redirect(url_for('login', next=request.url))
+
+
 def _list_thumbnail(view, context, model, name):
     if not model.filename:
         return ''
@@ -49,13 +51,13 @@ class Tables(ModelView):
         )
     }
     def get_query(self):
-        database = request.args.get('req', None) # pretending we have a GET parameter called "type"
+        database = request.args.get('req',default = None) # pretending we have a GET parameter called "type"
         if database!=None:
             return self.session.query(self.model).filter(self.model.databasename==database)
         else:
             return self.session.query(self.model)
     def get_count_query(self):
-        database = request.args.get('req',None)
+        database = request.args.get('req', default = None)
         if database!=None:
             return self.session.query(view.func.count('*')).filter(self.model.databasename==database)
         else:
@@ -151,4 +153,11 @@ class Logout(MyBaseView):
         logout_user()
         flash('Successfully logged out')
         return redirect(url_for('login'))
-      
+
+class dailypass(ModelView):
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+    def inaccessible_callback(self, name, **kwargs):
+        # redirect to login page if user doesn't have access
+        return redirect(url_for('login', next=request.url))

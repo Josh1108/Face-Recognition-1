@@ -3,7 +3,7 @@ from werkzeug.urls import url_parse
 from app import app,db
 from app.forms import LoginForm
 from flask_login import current_user, login_user,logout_user
-from app.models import User
+from app.models import User,examinee,dailypass
 from flask import request
 @app.route('/index')
 def index():
@@ -39,6 +39,7 @@ def get_databases():
     for r in result:
         lst.append(r[0])
     return jsonify({"databases": lst})
+
 @app.route('/api/database/<name>',methods=["GET"])
 def get_records(name):
     res = db.session.execute('SELECT * FROM examinee WHERE examinee.databasename=:val',{'val':name})
@@ -53,10 +54,42 @@ def get_records(name):
     # print(lst)
     return make_response(jsonify({'examinees': lst}))
 
+@app.route('/api/databases/attendance',methods=["GET","POST"])
+def mark_attendance():
+    database= request.json["database"]
+    rnum = request.json["attendance"]
+    try:
+        att = examinee.query.filter_by(databasename=database,RollNumber=rnum).first()
+        att.attendance=True
+        db.session.commit()
+    except AttributeError:
+        return make_response(jsonify({'result': 'attribute error'}))
+    # res = db.session.execute('UPDATE examinee SET attendance = 1 WHERE databasename=:val AND RollNumber=:rnum',{'val':database,'rnum':rnum})
+    return make_response(jsonify({'result': 'done'}))
+
+
+@app.route('/creds',methods=["POST"])
+def logincreds():
+    creds = request.json["ButterChicken"]
+    password =""
+    try:
+        res = db.session.execute('SELECT * FROM dailypass')
+        for r in res:
+            a,b = r
+        password = b
+        print(password)
+    except AttributeError:
+        return make_response(jsonify({'creds': 'keyerrorindatabase'}),150)
+    if "ButterChicken" ==creds:
+        return make_response(jsonify({'creds':"{}".format(password)}))
+    else: return make_response(jsonify({'creds': 'fail'}),100) # fails   
 
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
+
+
+
 
 
 #addlogin_required for protected pages, add decorater below app.route

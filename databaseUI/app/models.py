@@ -38,3 +38,6 @@ class examinee(UserMixin,db.Model):
         if self.filename is None:
             return
         return images.path(self.filename)
+class dailypass(UserMixin,db.Model):
+    id = db.Column(db.Integer,primary_key = True)
+    password = db.Column(db.Numeric(6,0))

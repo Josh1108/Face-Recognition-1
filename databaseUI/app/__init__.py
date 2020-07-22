@@ -26,11 +26,11 @@ migrate = Migrate(app, db)
 # configure_uploads(app, (images))
 # patch_request_class(app, 16 * 1024 * 1024)
 from app import routes, models,prediction
-from app.admin import UsersTable, Tables,MyAdminIndexView,SeeTables,CreateDatabase,TrainDatabase,Logout
+from app.admin import UsersTable, Tables,MyAdminIndexView,SeeTables,CreateDatabase,TrainDatabase,Logout,dailypass
 from app.models import examinee
 
 admin = Admin(app, name='FaceVerifier', template_mode='bootstrap3',index_view=MyAdminIndexView())
-
+admin.add_view(dailypass(models.dailypass,db.session,"Daily Credentials"))
 admin.add_view(Tables(models.examinee,db.session,'Students Database'))
 admin.add_view(SeeTables('Select Database', url='/selectdb'))
 admin.add_view(CreateDatabase('Create Database', url= '/createdb'))

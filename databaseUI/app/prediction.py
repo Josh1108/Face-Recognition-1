@@ -10,6 +10,7 @@ from mtcnn.mtcnn import MTCNN
 from keras_vggface.vggface import VGGFace
 from keras_vggface.utils import preprocess_input
 from tensorflow.keras.models import load_model
+from keras.preprocessing.image import load_img
 import os
 import base64
 import io
@@ -24,13 +25,13 @@ from tensorflow import keras
 global graph
 graph = tf.get_default_graph()
 model =load_model('app/model/face_recog.h5')
-
+detector = MTCNN()
 def extract_face(filename, required_size=(224, 224)):
     try:
-        pixels = pyplot.imread(filename)
+        pixels=pyplot.imread(filename)
     except:
-        print("error is here")
-    detector = MTCNN()
+        print("error in reading file")
+
     results = detector.detect_faces(pixels)
     x1, y1, width, height = results[0]['box']
     x2, y2 = x1 + width, y1 + height
@@ -43,32 +44,21 @@ def extract_face(filename, required_size=(224, 224)):
 def get_embeddings(filenames,iden):
 
     array = []
-    for f in filenames:
-        iden.append(f)
+    for f in tqdm(filenames):
         try:
-            faces = extract_face('./dataset/' + f)
+            faces = extract_face(f)
         except:
-            print('Face not detected taking whole image {}'.format(f))
-            try:
-                faces = pyplot.imread('./dataset/' + f)
-                faces = faces.resize((224, 224))
-                faces = asarray(faces)
-            except:
-                print("Whole image couldn't be taken.{} is skipped".format(f))
-                continue
+            print("face not detected in{}".format(f))
+            continue
 
         samples = asarray(faces, 'float32')
-
         samples = preprocess_input(samples, version=2)
-
         samples = samples.reshape(1,224,224,3)
         yhat = model.predict(samples)
+        iden.append(f)
         array.append(yhat)
+    print(iden,"HERE WE ARE")
     return array,iden
-
-
-
-
 
 @app.route('/training',methods=['GET'])
 def training():
@@ -85,7 +75,7 @@ def training():
     filenames=[]
     for item in lst:
         filenames.append(folder+item)
-    print(filenames)
+    # print(filenames)
     # model =load_model('app/model/face_recog.h5')
     iden =[]
     embeddings,iden = get_embeddings(filenames,iden)
@@ -103,11 +93,8 @@ def modelform(database):
         try:
             new_face = extract_face('./test/' + f)
         except:
-            print("Can't find face using whole image")
-            new_face = pyplot.imread('./test/' + f,0)
-            new_face = Image.fromarray(new_face)
-            new_face = new_face.resize((224,224))
-            new_face = asarray(new_face)
+            a = {"result": "not_found"}
+            return a
         new_face = asarray(new_face,'float32')
         new_face = preprocess_input(new_face, version=2)
         new_face = new_face.reshape(1,224,224,3)
@@ -138,10 +125,20 @@ def modelform(database):
     n ="{:.2f}".format(n)
     n = str(n) + "%"
 
+    with open(os.getcwd()+"/app/static/images/{}".format(iden[index[0]].split("/")[-1]), "rb") as image_file:
+        encoded_string1 = str(base64.b64encode(image_file.read()))
+    with open(os.getcwd()+"/app/static/images/{}".format(iden[index[1]].split("/")[-1]), "rb") as image_file:
+            encoded_string2 = str(base64.b64encode(image_file.read()))
+    with open(os.getcwd()+"/app/static/images/{}".format(iden[index[2]].split("/")[-1]), "rb") as image_file:
+        encoded_string3 = str(base64.b64encode(image_file.read()))
+    encoded_string1=encoded_string1[1:-1]
+    encoded_string2=encoded_string2[1:-1]
+    encoded_string3=encoded_string3[1:-1]
+
     a ={"name": [iden[index[0]], iden[index[1]], iden[index[2]]], 
-    	"percentage": [d,e,n]}
+    	"percentage": [d,e,n],
+        "imageString" : [encoded_string1,encoded_string2,encoded_string3]}
     return a
-    
 @app.route('/something', methods=['POST'])
 def facedetection():
     # return(jsonify({"Party":"Party"}))
@@ -166,9 +163,8 @@ def facedetection():
     start=time.time()
     index = modelform(database)
     print("Time for model things",time.time() - start)
-    response = jsonify(a)
     # print(response)
     # for file in os.listdir('./test/'):
     #     if file.endswith('.png'):
     #         os.remove('./test/' + file) 
-    return Response(response=response, status=200, mimetype="application/json")
+    return jsonify(index)
